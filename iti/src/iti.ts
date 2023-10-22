@@ -252,7 +252,7 @@ export class Container<
           containers: ContextGetter<Context>,
           self: Container<Context, DisposeContext>,
         ) => NewContext),
-  ): Container<Prettify<Assign<Context, NewContext>>, DisposeContext> {
+  ): Container<Assign<Context, NewContext>, DisposeContext> {
     let nc =
       typeof newContext === "function"
         ? // @ts-expect-error
@@ -278,7 +278,7 @@ export class Container<
           items: ContextGetter<Context>,
           self: Container<Context, DisposeContext>,
         ) => NewContext),
-  ): Container<Prettify<Assign<Context, NewContext>>, DisposeContext> {
+  ): Container<Assign<Context, NewContext>, DisposeContext> {
     let newContext =
       typeof newContextOrCb === "function"
         ? newContextOrCb(this.items, this)
